@@ -1,0 +1,59 @@
+@extends('layouts.main_admin')
+
+@section('content')
+
+
+<div class="content">
+    <div class="row">
+        <div class="col-lg-30">
+            <div class="card">
+                <form method="post" action="{{ route('Location_Store') }}" enctype="multipart/form-data">
+                    @csrf
+                    <div class="card-body">
+                        <div class="box-content">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="mb-3 mt-3 w-100">
+                                        <label>Location Details</label>
+                                        <textarea class="form-control editor" placeholder="Location Detail"
+                                            name="location_detail"> {{ old('location_url') }}</textarea>
+                                        <span class="text-danger">
+                                            @error('location_url')
+                                            {{ $message }}
+                                            @enderror
+                                        </span>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="mb-3 mt-3 w-100">
+                                        <label>Location Url</label>
+                                        <input class="form-control " placeholder="Location Url"
+                                            name="location_url" value="{{ old('location_url') }}" >
+                                        <span class="text-danger">
+                                            @error('location_url')
+                                            {{ $message }}
+                                            @enderror
+                                        </span>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="form-check mb-7">
+                                <button class="btn btn-sm btn-info" type="submit">Create</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@endsection
